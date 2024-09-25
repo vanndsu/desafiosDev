@@ -9,16 +9,6 @@ function toJadenCasee(string) {
 }
 console.log(toJadenCasee("How can mirrors be real if our eyes aren't real")); // Exemplo de uso da função
 
-// Versão alternativa, que contém um erro no return
-function toJadenCase(string) {
-  // O split e map são chamados corretamente, mas o return tenta usar string.join(), que é incorreto porque string ainda é uma string, não um array
-  string
-    .split(" ") // Divide a string em palavras
-    .map((newArray) => newArray.charAt(0).toUpperCase() + newArray.slice(1)); // Aplica a capitalização
-
-  return string.join(" "); // Erro: 'string' ainda é uma string, não um array, então join não funciona aqui
-}
-console.log(toJadenCase("How can mirrors be real if our eyes aren't real")); // Exemplo, não funcionará como esperado
 
 // Versão usando um loop for, funcional, mas mais longa que o map()
 function toJadenCase(string) {
@@ -32,8 +22,9 @@ function toJadenCase(string) {
 }
 console.log(toJadenCase("How can mirrors be real if our eyes aren't real")); // Exemplo de uso da função
 
+
 // Solução aceita no Codewars, estende a String.prototype para adicionar a função toJadenCase
-String.prototype.toJadenCase = function () {
+String.prototype.toJadenCasedi = function () {
   // Usa split, map, e join para capitalizar a primeira letra de cada palavra
   return this.split(" ")
     .map(function (word) {
@@ -41,3 +32,4 @@ String.prototype.toJadenCase = function () {
     })
     .join(" "); // Junta as palavras em uma nova string
 };
+
